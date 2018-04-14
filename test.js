@@ -21,4 +21,8 @@ describe('ffn()', function () {
   it('should test for truthiness if argument is undefined', function () {
     assert.strictEqual(arr.find(ffn()), 1)
   })
+
+  it('should test for falsiness if argument is undefined and `blacklist` is true', function () {
+    assert.strictEqual(typeof arr.find(ffn(undefined, {blacklist: true})), 'undefined') // eslint-disable-line no-undefined
+  })
 })

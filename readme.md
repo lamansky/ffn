@@ -6,7 +6,7 @@ Many projects use callbacks to filter values. Sometimes this filtering involves 
 
 ## Installation
 
-Requires [Node.js](https://nodejs.org/) 4.0.0 or above.
+Requires [Node.js](https://nodejs.org/) 6.0.0 or above.
 
 ```bash
 npm i ffn
@@ -16,14 +16,16 @@ npm i ffn
 
 The module exports a single function.
 
-### Parameter
+### Parameters
 
-Optional: `f` (any): A Function, an Array, or some other value.
+1. `f` (any): A Function, an Array, or some other value.
+2. Object argument:
+    * Optional: `blacklist` (bool): Set to `true` if `ffn` is being used to create a blacklist. This will make falsey values test true when `f` is undefined. Defaults to `false`.
 
 ### Return Values
 
 * If `f` is a Function: returns `f`
-* If `f` is omitted or otherwise undefined: returns a function that tests whether its argument is truthy
+* If `f` is omitted or otherwise undefined: returns a function that tests whether its argument is truthy (unless `blacklist` is `true`)
 * If `f` is an Array: returns a function that tests whether its argument is included in `f`
 * Otherwise: returns a function that tests whether its argument is strictly equal to `f`
 
